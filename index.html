@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xuan</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css' />
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.7rem;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    h5 {
+      font-size: 1.2rem;
+    }
+
+    h6 {
+      font-size: 1rem;
+    }
+
+    .content {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .navbar {
+      padding: 0 20px;
+      padding-top: 50px;
+      font-family: "Protest Strike", sans-serif;
+    }
+
+    .navbar .container {
+      border: 1px solid #ccc;
+      border-radius: 5rem;
+      padding: 5px 20px;
+    }
+
+    .menu-toggle {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      position: relative;
+      z-index: 99999;
+    }
+
+    .menu-toggle .line {
+      background: #ccc;
+      width: 100%;
+      height: 5px;
+      border-radius: 3rem;
+    }
+
+    #menu {
+      background: #000;
+      height: 120%;
+      width: 800px;
+      border-radius: 100%;
+      right: 0%;
+      top: 50%;
+      transform: translate(110%, -50%);
+      font-family: "Protest Strike";
+
+      display: flex;
+      color: #fff;
+      align-items: center;
+      z-index: 10010;
+      transition: all 0.3s;
+      transition-timing-function: cubic-bezier(0.00, 0.43, 0.00, 1.34);
+    }
+
+    #menu.active {
+      transform: translate(50%, -50%);
+    }
+
+    #menu .border-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -10%;
+      border-radius: 100%;
+      background: #0000001e;
+      z-index: -1;
+      transition: all 0.4s;
+      transition-timing-function: cubic-bezier(0.00, 0.43, 0.00, 1.34);
+    }
+
+    #menu.active .border-bg {
+      left: -18%;
+    }
+
+    #menu>div {
+      margin-left: 120px;
+    }
+
+    #menu a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    #menu li {
+      margin-top: 15px;
+      opacity: 0.5;
+      transition: opacity 0.5s;
+    }
+
+    #menu li:hover {
+      opacity: 1;
+    }
+
+    .blur-bg {
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(3px);
+      background-color: #00000080;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .blur-bg.active {
+      opacity: 1;
+    }
+
+    .blur-bg.active2 {
+      pointer-events: visible;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Example</a>
+        <a class="menu-toggle">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div id="menu" class="position-fixed">
+    <div class="container">
+      <h2>XUAN LIN</h2>
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#about">ABOUT</a></li>
+      </ul>
+    </div>
+    <div class="border-bg"></div>
+  </div>
+
+  <div class="blur-bg fixed-top"></div>
+
+  <div class="content"></div>
+  <div class="content"></div>
+  <div class="content"></div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js'></script>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle')
+    const menu = document.querySelector('#menu')
+    const blurBg = document.querySelector('.blur-bg')
+
+    menuToggle.addEventListener('mouseover', () => {
+      menu.classList.add('active')
+      blurBg.classList.add('active')
+      setTimeout(() => {
+        blurBg.classList.add('active2')
+      }, 500)
+    })
+
+    blurBg.addEventListener('mouseover', () => {
+      menu.classList.remove('active')
+      blurBg.classList.remove('active', 'active2')
+    })
+  </script>
+
+  <script>
+
+  </script>
+</body>
+
+</html>
